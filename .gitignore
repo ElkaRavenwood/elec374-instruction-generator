@@ -1,2 +1,7 @@
 # Mac Files
 *.DS_Store
+
+# Node Modules
+node_modules/
+# Package Lock
+package-lock.json
