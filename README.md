@@ -1,10 +1,16 @@
 # elec374-instruction-generator
-To use this, go to 
-https://elkaravenwood.github.io/elec374-instruction-generator/
-
 An instruction decoder for phase 3 of the ELEC 374 CPU project at Queen's University.
 
 Users can enter the information into the correct fields and the corresponding hex and binary instruction is generated.
+
+## General Usage
+To use this, go to 
+https://elkaravenwood.github.io/elec374-instruction-generator/
+## Local Usage
+Note that this requires having node and npm installed
+1. Clone repository
+2. Run ```npm i``` to install dependencies. This will take a few minutes
+3. Run ```npm run start```
 
 # Dev Notes
 Use ```npm run deploy``` to push the latest changes to production
