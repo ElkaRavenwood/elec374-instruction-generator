@@ -1,12 +1,37 @@
 # elec374-instruction-generator
-WIP 
+To use this, go to 
+https://elkaravenwood.github.io/elec374-instruction-generator/
+
 An instruction decoder for phase 3 of the ELEC 374 CPU project at Queen's University.
 
-## Mode 1
-Instruction and registers and c values are in separate boxes
-instruciton can be binary and hex
+Users can enter the information into the correct fields and the corresponding hex and binary instruction is generated.
 
-# Getting Started with Create React App
+# Dev Notes
+Use ```npm run deploy``` to push the latest changes to production
+
+## TODOs
+[X] functional instruction generator
+
+[ ] add drop down to choose if you want to enter value of C as dec or hex
+
+[ ] make it useful on mobile so students can generate instructions on their phone and type it out easier 
+
+[ ] make it able to parse the instruction if typed in as <i>ld RX, C</i> for example as an alternate mode
+
+[ ] have instruction descriptions maybe
+
+[ ] have a history of past instructions, with the fields entered somewhere
+
+[ ] create/update readme on hosting branch
+
+[ ] make this readme better
+
+
+[ ] prolly add a disclaimer somewhere bc idk if I'm updating this if the project changes
+
+[ ] maybe add an about me or rationale somewhere for self-promotion
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -75,4 +100,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
