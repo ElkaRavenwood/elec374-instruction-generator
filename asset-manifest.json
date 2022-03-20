@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/elec374-instruction-generator/static/css/main.073c9b0a.css",
+    "main.js": "/elec374-instruction-generator/static/js/main.b6bcc0ce.js",
+    "static/js/787.da790a43.chunk.js": "/elec374-instruction-generator/static/js/787.da790a43.chunk.js",
+    "index.html": "/elec374-instruction-generator/index.html",
+    "main.073c9b0a.css.map": "/elec374-instruction-generator/static/css/main.073c9b0a.css.map",
+    "main.b6bcc0ce.js.map": "/elec374-instruction-generator/static/js/main.b6bcc0ce.js.map",
+    "787.da790a43.chunk.js.map": "/elec374-instruction-generator/static/js/787.da790a43.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b6bcc0ce.js"
+  ]
+}
