@@ -22,6 +22,8 @@ Use ```npm run deploy``` to push the latest changes to production
 
 [X] Decimal value output
 
+[ ] Accept negative C values
+
 [ ] Mobile Friendly (so students can generate instructions on their phone and type it out easier)
 
 [ ] Parse assembly instructions (ie. <i>ld RX, C</i>)
