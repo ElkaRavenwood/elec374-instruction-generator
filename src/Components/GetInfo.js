@@ -17,6 +17,7 @@ const GetInfo = () => {
     const [instruction, setInstruction] = useState({
         hex: "",
         binary: "",
+        dec: "",
     });
     const [cType, setCType] = useState(10);
     const [error, setError] = useState("");
@@ -26,7 +27,7 @@ const GetInfo = () => {
     const handleCTypeChange = (event) => setCType(event.target.value);
     const handleSubmitInstruction = () => {
         // console.log(instructionDetails)
-        const binary = generate_instruction.binary(
+        const binary = generate_instruction.bin(
             instructionDetails[process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION], 
             instructionDetails[process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_RA], 
             instructionDetails[process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_RB], 
@@ -41,6 +42,7 @@ const GetInfo = () => {
             setError("");
             setInstruction({
                 hex: generate_instruction.hex(binary),
+                dec: generate_instruction.dec(binary),
                 binary: binary,
             });
         }
@@ -112,6 +114,8 @@ const GetInfo = () => {
                     <Grid item xs={6}><Typography variant="h6">{instruction.hex}</Typography></Grid>
                     <Grid item xs={6}><Typography variant="h6">Binary:</Typography></Grid>
                     <Grid item xs={6}><Typography >{instruction.binary}</Typography></Grid>
+                    <Grid item xs={6}><Typography variant="h6">Decimal:</Typography></Grid>
+                    <Grid item xs={6}><Typography >{instruction.dec}</Typography></Grid>
                     { error ? <>
                         <Grid item xs={6}><Typography variant="h6">Error Message:</Typography></Grid>
                         <Grid item xs={6}><Typography variant="h6">{error}</Typography></Grid>

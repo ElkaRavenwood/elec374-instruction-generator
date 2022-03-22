@@ -20,6 +20,8 @@ Use ```npm run deploy``` to push the latest changes to production
 
 [X] Drop down to choose if you want to enter value of C as dec or hex
 
+[X] Decimal value output
+
 [ ] Mobile Friendly (so students can generate instructions on their phone and type it out easier)
 
 [ ] Parse assembly instructions (ie. <i>ld RX, C</i>)
@@ -32,6 +34,7 @@ Use ```npm run deploy``` to push the latest changes to production
 
 [ ] create/update readme on hosting branch
 
+[X] Prevent spaces from being stored in state
 
 [ ] prolly add a disclaimer somewhere bc idk if I'm updating this if the project changes
 

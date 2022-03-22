@@ -38,7 +38,7 @@ const fill_in_zeros = (instruction_string) => {
 // ra, rb, rc - ints from 0 - 15; or null if not used
 // C - int value
 // if instructions dont use rX or C, when collecting info, will default to null
-const generate_instruction_binary = (instruction, ra, rb, rc, C) => {
+const generate_instruction_bin = (instruction, ra, rb, rc, C) => {
   // Error checking
   let error = "";
   if (!opcode_map[instruction.toLowerCase()]) {
@@ -119,16 +119,21 @@ const generate_instruction_hex = (binary_instruction) => {
   return hex_instruction;
 }
 
+const generate_instruction_dec = (binary_instruction) => {
+  return parseInt(binary_instruction, 2);
+}
+
 // testing
-// let t = generate_instruction_binary("ldi", 3, null, null, 135);
+// let t = generate_instruction_bin("ldi", 3, null, null, 135);
 // console.log(t)
 // console.log(t.length)
 // t = parseInt(t, 2).toString(16).toUpperCase();
 // console.log(t)
 
 const generate_instruction = {
-  binary: generate_instruction_binary,
+  bin: generate_instruction_bin,
   hex: generate_instruction_hex,
+  dec: generate_instruction_dec,
 };
 
 export default generate_instruction;
