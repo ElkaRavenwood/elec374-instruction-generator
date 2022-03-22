@@ -21,7 +21,7 @@ const GetInfo = () => {
     const [cType, setCType] = useState(10);
     const [error, setError] = useState("");
     const handleTextChange = (event, type) => {
-        setInstructionDetails({...instructionDetails, [type]: event.target.value || null });
+        setInstructionDetails({...instructionDetails, [type]: event.target.value.replace(/\s+/g,'') || null });
     }
     const handleCTypeChange = (event) => setCType(event.target.value);
     const handleSubmitInstruction = () => {
