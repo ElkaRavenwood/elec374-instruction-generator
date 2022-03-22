@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+document.title=process.env.REACT_APP_TITLE;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
