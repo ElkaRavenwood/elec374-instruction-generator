@@ -1,4 +1,5 @@
 import opcode_map  from "./opcode_map";
+import strings from "./Resources/strings";
 // Gets register in binary
 function dec2bin_Register(dec) {
   if (dec === null) return dec; // if null, just return ut
@@ -73,37 +74,37 @@ const generate_instruction_bin = (instruction, ra, rb, rc, C) => {
   const instruction_type = instruction.type;
   switch(instruction_type) {
     case "load_store":
-      if (!ra) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
-      if (!C) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_C}
+      if (!ra) return {error: strings.calculations.missing_register}
+      if (!C) return {error: strings.calculations.missing_c}
       converted_instruction += ra + (rb ? rb : "0000") + dec2bin_C(C, 19)
       break;
     case "basic_arithmetic":
-      if (!ra || !rb || !rc) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
+      if (!ra || !rb || !rc) return {error: strings.calculations.missing_register}
       converted_instruction += ra + rb + rc;
       converted_instruction = fill_in_zeros(converted_instruction);
       break;
     case "immediate":
-      if (!ra || !rb) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
-      if (!C) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_C}
+      if (!ra || !rb) return {error: strings.calculations.missing_register}
+      if (!C) return {error: strings.calculations.missing_c}
       converted_instruction += ra + rb + dec2bin_C(C, 19);
       break;
     case "complex_arithmetic":
-      if (!ra || !rb) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
+      if (!ra || !rb) return {error: strings.calculations.missing_register}
       converted_instruction += ra + rb;
       converted_instruction = fill_in_zeros(converted_instruction);
       break;
     case "branch":
-      if (!ra) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
-      if (!C) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_C}
+      if (!ra) return {error: strings.calculations.missing_register}
+      if (!C) return {error: strings.calculations.missing_c}
       converted_instruction += ra + "00" + instruction.code + dec2bin_C(C, 19);
       break;
     case "jump":
-      if (!ra) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
+      if (!ra) return {error: strings.calculations.missing_register}
       converted_instruction += ra;
       converted_instruction = fill_in_zeros(converted_instruction);
       break;
     case "inout":
-      if (!ra) return {error: process.env.REACT_APP_CALCULATIONS_MISSING_REGISTER}
+      if (!ra) return {error: strings.calculations.missing_register}
       converted_instruction += ra;
       converted_instruction = fill_in_zeros(converted_instruction);
       break;

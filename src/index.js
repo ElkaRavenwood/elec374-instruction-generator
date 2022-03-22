@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import strings from './Resources/strings';
 
-document.title=process.env.REACT_APP_TITLE;
+document.title=strings.site_title;
 
 ReactDOM.render(
   <React.StrictMode>
