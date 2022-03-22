@@ -1,5 +1,5 @@
 # elec374-instruction-generator
-An instruction decoder for phase 3 of the ELEC 374 CPU project at Queen's University.
+An instruction decoder for Phase 3 of the CPU project at Queen's University for ELEC 374.
 
 Users can enter the information into the correct fields and the corresponding hex and binary instruction is generated.
 
@@ -18,7 +18,7 @@ Use ```npm run deploy``` to push the latest changes to production
 ## TODOs
 [X] functional instruction generator
 
-[ ] add drop down to choose if you want to enter value of C as dec or hex
+[X] add drop down to choose if you want to enter value of C as dec or hex
 
 [ ] make it useful on mobile so students can generate instructions on their phone and type it out easier 
 
