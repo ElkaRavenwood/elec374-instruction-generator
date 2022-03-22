@@ -39,7 +39,7 @@ Note that this requires having node and npm installed
 
 [X] Prevent spaces from being stored in state
 
-[ ] prolly add a disclaimer somewhere bc idk if I'm updating this if the project changes
+[X] Disclaimer
 
 [ ] maybe add an about me or rationale somewhere for self-promotion
 

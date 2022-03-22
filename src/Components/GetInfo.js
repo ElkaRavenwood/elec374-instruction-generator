@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import opcode_map  from "../opcode_map";
@@ -52,8 +51,8 @@ const GetInfo = () => {
         // console.log(instruction)
     }
     return (
-        <Box>
-            <Grid container spacing={2}>
+        <Grid container item xs={12} spacing={2}>
+            <Grid container item xs={12} spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField fullWidth label={process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION} onChange={(event) => handleTextChange(event, process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION)} />
                 </Grid>
@@ -105,8 +104,7 @@ const GetInfo = () => {
                 </Grid>
             </Grid>
 
-            <br/>
-            <Grid container spacing={2}>
+            <Grid item xs={12} container spacing={2}>
                 <Grid item lg={1} xl={2}/>
                 <Grid item container spacing={2} lg={10} xl={8}>
                     <Grid item xs={12}><Typography variant="h5">Results:</Typography></Grid>
@@ -124,7 +122,7 @@ const GetInfo = () => {
                 </Grid>
                 <Grid item lg={1} xl={2}/>
             </Grid>
-        </Box>
+        </Grid>
     );
 };
 
