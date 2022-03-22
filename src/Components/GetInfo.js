@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import opcode_map  from "../opcode_map";
 import generate_instruction from "../generate_instruction";
 import { Grid, MenuItem, Select, Typography } from '@mui/material';
 const GetInfo = () => {
@@ -51,8 +52,16 @@ const GetInfo = () => {
     return (
         <Box>
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={12} md={6}>
                     <TextField fullWidth label={process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION} onChange={(event) => handleTextChange(event, process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION)} />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <TextField fullWidth disabled 
+                        label={opcode_map[instructionDetails[process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION]]? 
+                            opcode_map[instructionDetails[process.env.REACT_APP_GETINFO_INSTRUCTION_DETAILS_INSTRUCTION]].name : 
+                            "No Description"
+                            }
+                        />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField fullWidth 

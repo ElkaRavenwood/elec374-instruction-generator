@@ -16,21 +16,21 @@ Note that this requires having node and npm installed
 Use ```npm run deploy``` to push the latest changes to production
 
 ## TODOs
-[X] functional instruction generator
+[X] Functional instruction generator
 
-[X] add drop down to choose if you want to enter value of C as dec or hex
+[X] Drop down to choose if you want to enter value of C as dec or hex
 
-[ ] make it useful on mobile so students can generate instructions on their phone and type it out easier 
+[ ] Mobile Friendly (so students can generate instructions on their phone and type it out easier)
 
-[ ] make it able to parse the instruction if typed in as <i>ld RX, C</i> for example as an alternate mode
+[ ] Parse assembly instructions (ie. <i>ld RX, C</i>)
 
-[ ] have instruction descriptions maybe
+[X] Basic instruction description (name)
 
-[ ] have a history of past instructions, with the fields entered somewhere
+[ ] History of past instructions
+
+[ ] Fields that generated past instructions
 
 [ ] create/update readme on hosting branch
-
-[ ] make this readme better
 
 
 [ ] prolly add a disclaimer somewhere bc idk if I'm updating this if the project changes
