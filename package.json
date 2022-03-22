@@ -21,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "update_upstream": "git branch --set-upstream-to origin/main"
   },
   "eslintConfig": {
     "extends": [

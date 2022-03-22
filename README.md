@@ -13,7 +13,8 @@ Note that this requires having node and npm installed
 3. Run ```npm run start```
 
 # Dev Notes
-Use ```npm run deploy``` to push the latest changes to production
+- Use ```npm run deploy``` to push the latest changes to production.
+- If there are issues deploying or pushing due to a 'remote-rejected' error, run ```npm run update_upstream``` to reset it.
 
 ## TODOs
 [X] Functional instruction generator
