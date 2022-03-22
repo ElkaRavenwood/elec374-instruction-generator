@@ -23,7 +23,7 @@ Note that this requires having node and npm installed
 
 [X] Decimal value output
 
-[ ] Accept negative C values
+[X] Accept negative C values
 
 [ ] Mobile Friendly (so students can generate instructions on their phone and type it out easier)
 

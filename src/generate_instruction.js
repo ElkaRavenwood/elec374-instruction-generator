@@ -18,8 +18,11 @@ function dec2bin_Register(dec) {
 // bits - number of bits it should be when converted to binary
 function dec2bin_C(dec, bits) {
   if (dec === null) return dec; // if null, just return ut
-  let bin_str = (dec >>> 0).toString(2);
-  let bin_str_head = "";
+  let bin_str;
+  let bin_str_head;
+  bin_str = (dec >>> 0).toString(2);
+  bin_str_head = "";
+  if (bin_str.length > bits) bin_str = bin_str.substring(bin_str.length - bits, bin_str.length)
   while (bin_str_head.length < (bits - bin_str.length)) {
     bin_str_head += "0";
   }
