@@ -7,7 +7,7 @@ const Instructions = () => {
     return (
         <Box>
             <Typography variant="h3" gutterBottom>{strings.site_title}</Typography>
-            <Typography gutterBottom>{strings.instructions} </Typography>
+            <Typography gutterBottom>{strings.site_instructions} </Typography>
         </Box>
     )
 }

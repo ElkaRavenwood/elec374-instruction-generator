@@ -1,23 +1,24 @@
 import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import opcode_map  from "../opcode_map";
-import generate_instruction from "../generate_instruction";
+import opcode_map  from "../Resources/opcode_map";
+import generate_instruction from "../Resources/generate_instruction";
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import generate_assembly from '../Resources/generate_assembly';
 import strings from '../Resources/strings';
 
 const GetInfo = (params) => {
 
-    const {onSetError, onSetInstruction} = params;
+    const {onSetError, onSetInstruction, onSetHistory} = params;
 
     const [instructionDetails, setInstructionDetails] = useState({
-        [strings.get_info.details.instruction]: "",
-        [strings.get_info.details.ra]: null,
-        [strings.get_info.details.rb]: null,
-        [strings.get_info.details.rc]: null,
-        [strings.get_info.details.c]: null,
+        [strings.instruction_info.instruction]: "",
+        [strings.instruction_info.ra]: null,
+        [strings.instruction_info.rb]: null,
+        [strings.instruction_info.rc]: null,
+        [strings.instruction_info.c]: null,
     });
     const [cType, setCType] = useState(10);
     const handleTextChange = (event, type) => {
@@ -27,14 +28,14 @@ const GetInfo = (params) => {
     const handleSubmitInstruction = () => {
         // console.log(instructionDetails)
         const binary = generate_instruction.bin(
-            instructionDetails[strings.get_info.details.instruction], 
-            instructionDetails[strings.get_info.details.ra], 
-            instructionDetails[strings.get_info.details.rb], 
-            instructionDetails[strings.get_info.details.rc], 
+            instructionDetails[strings.instruction_info.instruction], 
+            instructionDetails[strings.instruction_info.ra], 
+            instructionDetails[strings.instruction_info.rb], 
+            instructionDetails[strings.instruction_info.rc], 
             (cType === 10) ? 
-                instructionDetails[strings.get_info.details.c] : 
-                parseInt(instructionDetails[strings.get_info.details.c], 16)
-            )
+                instructionDetails[strings.instruction_info.c] : 
+                parseInt(instructionDetails[strings.instruction_info.c], 16)
+            );
         if (binary.error) {
             onSetError(binary.error);
         } else {
@@ -44,54 +45,72 @@ const GetInfo = (params) => {
                 dec: generate_instruction.dec(binary),
                 bin: binary,
             });
+            onSetHistory((history) => [{
+                [strings.results.hexadecimal]: generate_instruction.hex(binary),
+                [strings.results.decimal]: generate_instruction.dec(binary),
+                [strings.results.binary]: binary,
+                [strings.instruction_info.instruction]: generate_assembly(instructionDetails),
+                [strings.results.c_type]: cType,
+            }, ...history])
         }
-        // let instruction = instructionDetails.instruction.split(", ");
-        // const first_instruction = instruction.shift();
-        // instruction = [...first_instruction.split(" "), ...instruction];
-        // console.log(instruction)
+    }
+
+    const get_c_error = () => {
+        if (cType === 10) { // decimal
+            if (instructionDetails[strings.instruction_info.c] && isNaN(instructionDetails[strings.instruction_info.c])) return true;
+        } else {
+            if (parseInt(instructionDetails[strings.instruction_info.c], 16).toString(16) !== instructionDetails[strings.instruction_info.c]) return true;
+        }
+    }
+    const get_c_helper_text = () => {
+        if (cType === 10) {
+            if (isNaN(instructionDetails[strings.instruction_info.c])) return strings.get_info.error.input
+        } else {
+            if (parseInt(instructionDetails[strings.instruction_info.c], 16).toString(16) !== instructionDetails[strings.instruction_info.c]) return strings.get_info.error.invalid_hex;
+        }
     }
     return (
         <Grid container item xs={12} spacing={2}>
             <Grid container item xs={12} spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <TextField fullWidth label={strings.get_info.details.instruction} onChange={(event) => handleTextChange(event, strings.get_info.details.instruction)} />
+                    <TextField fullWidth label={strings.instruction_info.instruction} onChange={(event) => handleTextChange(event, strings.instruction_info.instruction)} />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <TextField fullWidth disabled 
-                        label={opcode_map[instructionDetails[strings.get_info.details.instruction]]? 
-                            opcode_map[instructionDetails[strings.get_info.details.instruction]].name : 
+                        label={opcode_map[instructionDetails[strings.instruction_info.instruction]]? 
+                            opcode_map[instructionDetails[strings.instruction_info.instruction]].name : 
                             strings.get_info.error.no_instruction
                             }
                         />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField fullWidth 
-                        label={strings.get_info.details.ra} 
-                        onChange={(event) => handleTextChange(event, strings.get_info.details.ra)} 
-                        error={isNaN(instructionDetails[strings.get_info.details.ra])} 
-                        helperText={isNaN(instructionDetails[strings.get_info.details.ra]) ? strings.get_info.error.input : ""}/>
+                        label={strings.instruction_info.ra} 
+                        onChange={(event) => handleTextChange(event, strings.instruction_info.ra)} 
+                        error={isNaN(instructionDetails[strings.instruction_info.ra])} 
+                        helperText={isNaN(instructionDetails[strings.instruction_info.ra]) ? strings.get_info.error.input : ""}/>
                     <br/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField fullWidth 
-                        label={strings.get_info.details.rb} 
-                        onChange={(event) => handleTextChange(event, strings.get_info.details.rb)} 
-                        error={isNaN(instructionDetails[strings.get_info.details.rb])} 
-                        helperText={isNaN(instructionDetails[strings.get_info.details.rb]) ? strings.get_info.error.input : ""}/>
+                        label={strings.instruction_info.rb} 
+                        onChange={(event) => handleTextChange(event, strings.instruction_info.rb)} 
+                        error={isNaN(instructionDetails[strings.instruction_info.rb])} 
+                        helperText={isNaN(instructionDetails[strings.instruction_info.rb]) ? strings.get_info.error.input : ""}/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField fullWidth 
-                        label={strings.get_info.details.rc} 
-                        onChange={(event) => handleTextChange(event, strings.get_info.details.rc)} 
-                        error={isNaN(instructionDetails[strings.get_info.details.rc])} 
-                        helperText={isNaN(instructionDetails[strings.get_info.details.rc]) ? strings.get_info.error.input : ""}/>
+                        label={strings.instruction_info.rc} 
+                        onChange={(event) => handleTextChange(event, strings.instruction_info.rc)} 
+                        error={isNaN(instructionDetails[strings.instruction_info.rc])} 
+                        helperText={isNaN(instructionDetails[strings.instruction_info.rc]) ? strings.get_info.error.input : ""}/>
                 </Grid>
                 <Grid item xs={8} md={10} >
                     <TextField fullWidth 
-                        label={strings.get_info.details.c} 
-                        onChange={(event) => handleTextChange(event, strings.get_info.details.c)} 
-                        error={cType !== 16 && instructionDetails[strings.get_info.details.c] && isNaN(instructionDetails[strings.get_info.details.c])} 
-                        helperText={(cType !== 16 && isNaN(instructionDetails[strings.get_info.details.c]) ? strings.get_info.error.input : "") || cType === 16 ? strings.get_info.error.invalid_C : ""}/>
+                        label={strings.instruction_info.c} 
+                        onChange={(event) => handleTextChange(event, strings.instruction_info.c)} 
+                        error={get_c_error()} 
+                        helperText={get_c_helper_text()}/>
                 </Grid>
                 <Grid item xs={4} md={2}>
                     <Select value={cType} onChange={handleCTypeChange} fullWidth>
