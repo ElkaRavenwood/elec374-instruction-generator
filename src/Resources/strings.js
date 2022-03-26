@@ -1,21 +1,22 @@
 const strings = {
   site_title: "ELEC 374 Instruction Encoder",
   git_link: "https://github.com/ElkaRavenwood/elec374-instruction-generator/",
-  instructions: "Enter the part of the instruction in the appropriate field. Note that for registers, just the number is needed. Click the submit button when you're done. The generated instruction is below in hex, binary and decimal.",
+  site_instructions: "Enter the part of the instruction in the appropriate field. Note that for registers, just the number is needed. Click the submit button when you're done. The generated instruction is below in hex, binary and decimal.",
+  instruction_info: {
+    instruction: "Instruction",
+    ra: "RA",
+    rb: "RB",
+    rc: "RC",
+    c: "C",
+    c_type: "C_Type",
+  },
   get_info: {
     error: {
       input: "Invalid input. Did you type letters or spaces in the field?",
-      invalid_C: "Make sure you have the right symbols in here.",
+      invalid_hex: "Invalid Hex Value",
       missing_C: "C value missing for instruction.",
       missing_register: "Register missing for instruction.",
       no_instruction: "No information.",
-    },
-    details: {
-      instruction: "Instruction",
-      ra: "RA",
-      rb: "RB",
-      rc: "RC",
-      c: "C",
     },
   },
   footer: {
@@ -27,6 +28,7 @@ const strings = {
     decimal: "Decimal",
     binary: "Binary",
     error: "Error Message",
+    c_type: "C Type",
   },
   calculations: {
     missing_register:"Register missing for instruction.",

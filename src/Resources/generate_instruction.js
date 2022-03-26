@@ -1,5 +1,5 @@
 import opcode_map  from "./opcode_map";
-import strings from "./Resources/strings";
+import strings from "./strings";
 // Gets register in binary
 function dec2bin_Register(dec) {
   if (dec === null) return dec; // if null, just return ut
@@ -61,6 +61,16 @@ const generate_instruction_bin = (instruction, ra, rb, rc, C) => {
   if (rc && rc.text) {
     error += rc.text + "\n";
   }
+  // const hex_check = /[0-9A-Fa-f]*/g
+  // if (!hex_check.test(C)) {
+  //   error += "Invalid Hex value"
+  // }
+  // console.log(C)
+  const a = parseInt(C,16);
+  // console.log(C)
+  // console.log(a.toString(16))
+  if (a.toString(16) !== "" + C) error += "Invalid Hex value"
+
 
   if (error !== "") {
     console.log(error)
