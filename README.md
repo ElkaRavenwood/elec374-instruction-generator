@@ -31,9 +31,9 @@ Note that this requires having node and npm installed
 
 [X] Basic instruction description (name)
 
-[ ] History of past instructions
+[X] History of past instructions
 
-[ ] Fields that generated past instructions
+[X] Fields that generated past instructions (assembly instruction)
 
 [ ] create/update readme on hosting branch
 
